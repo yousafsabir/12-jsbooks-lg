@@ -1,0 +1,100 @@
+// <----Fonts---->
+
+@font-face {
+  font-family: "Calisto-MT-Regular";
+  src: url(../assests/fonts/Calisto-MT.ttf);
+}
+
+@font-face {
+  font-family: "Calisto-MT-Bold";
+  src: url(../assests/fonts/Calisto-MT-Bold.ttf);
+}
+
+@font-face {
+  font-family: "Calisto-MT-Italic";
+  src: url(../assests/fonts/Calisto-MT-Italic.ttf);
+}
+
+// dunno why the reset is not working, had to apply this to remove margin
+* {
+  margin: 0;
+}
+
+// @mixin flex($direction, $x, $y) {
+//   display: flex;
+//   flex-direction: $direction;
+//   justify-content: $x;
+//   align-items: $y;
+// }
+
+// <----Configuration---->
+// =>fonts
+$ff-regular: "Calisto-MT-Regular";
+$ff-bold: "Calisto-MT-Bold";
+$ff-italic: "Caclisto-MT-Italic";
+// =>colors
+$gold: #c18f59;
+
+// <----Styles---->
+body {
+  font-family: $ff-regular;
+}
+// ===>pg1
+.pg1 {
+  width: 100%;
+  background: linear-gradient(rgba(0, 0, 0, 0.9), rgba(0,  0, 0, 0.9)),
+    url(../assests/images/top-banner-bckg.jpg);
+  background-size: 142%;
+  // background-attachment: fixed;
+  background-position: 50% 2%;
+  background-repeat: no-repeat;
+
+  .pg1-container {
+    width: 58.60%;
+    margin: 0 auto;
+
+    nav {
+      width: 100%;
+      padding: 45px 0;
+      margin-bottom: 115px;
+      ul {
+        padding-left: 0;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+      }
+    }
+
+    .hero-section {
+      width: 100%;
+      // @include flex(row, center, center);
+
+      .hero-img {
+        flex-basis: 55%;
+      }
+
+      .hero-text {
+        flex-basis: 45%;
+        margin-left: 54px;
+
+        span {
+          display: inline-block;
+          font-size: 14px;
+          color: $gold;
+          margin-bottom: 15px;
+        }
+
+        h1 {
+          font-size: 74px;
+          letter-spacing: 3px;
+          color: #fff;
+          font-family: $ff-bold;
+        }
+
+        .righted-text {
+          padding-left: 27%;
+        }
+      }
+    }
+  }
+}
