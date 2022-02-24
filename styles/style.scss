@@ -20,12 +20,12 @@
   margin: 0;
 }
 
-// @mixin flex($direction, $x, $y) {
-//   display: flex;
-//   flex-direction: $direction;
-//   justify-content: $x;
-//   align-items: $y;
-// }
+@mixin flex($direction, $x, $y) {
+  display: flex;
+  flex-direction: $direction;
+  justify-content: $x;
+  align-items: $y;
+}
 
 // <----Configuration---->
 // =>fonts
@@ -34,6 +34,7 @@ $ff-bold: "Calisto-MT-Bold";
 $ff-italic: "Caclisto-MT-Italic";
 // =>colors
 $gold: #c18f59;
+$grey: #777;
 
 // <----Styles---->
 body {
@@ -42,32 +43,40 @@ body {
 // ===>pg1
 .pg1 {
   width: 100%;
-  background: linear-gradient(rgba(0, 0, 0, 0.9), rgba(0,  0, 0, 0.9)),
+  background: linear-gradient(rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0.9)),
     url(../assests/images/top-banner-bckg.jpg);
-  background-size: 142%;
+  background-size: 108%;
   // background-attachment: fixed;
-  background-position: 50% 2%;
+  background-position: 50% 0%;
   background-repeat: no-repeat;
+  margin-bottom: 120px;
 
   .pg1-container {
-    width: 58.60%;
+    width: 58.6%;
     margin: 0 auto;
 
     nav {
       width: 100%;
-      padding: 45px 0;
+      padding: 44px 0;
       margin-bottom: 115px;
       ul {
         padding-left: 0;
         display: flex;
         align-items: center;
         justify-content: space-between;
+
+        // increasing font size of menu icon
+        li:nth-child(2) {
+          img {
+            width: 30px;
+          }
+        }
       }
     }
 
     .hero-section {
       width: 100%;
-      // @include flex(row, center, center);
+      @include flex(row, center, center);
 
       .hero-img {
         flex-basis: 55%;
@@ -82,19 +91,80 @@ body {
           font-size: 14px;
           color: $gold;
           margin-bottom: 15px;
+
+          // adding margin bottom to the first span
+          &:first-child {
+            margin-bottom: 15px;
+          }
         }
 
-        h1 {
+        h2 {
           font-size: 74px;
           letter-spacing: 3px;
+          line-height: 1.2;
           color: #fff;
           font-family: $ff-bold;
+
+          // &:last-child {
+          //   margin-bottom: 10px;
+          // }
+        }
+        // nth child didn't work, so had to give another class
+        .mg-bt {
+          margin-bottom: 10px;
         }
 
         .righted-text {
           padding-left: 27%;
+          margin-bottom: 8px;
+        }
+
+        p {
+          line-height: 1.2;
+          color: $grey;
+          margin-bottom: 42px;
+        }
+
+        button {
+          // display: inline-block;
+          padding: 10px 20px;
+          font-size: 11px;
+          background: transparent;
+          text-transform: uppercase;
+          text-decoration: none;
+          color: #c18f59;
+          border: 1px solid #fff;
+
+          &:hover {
+            // PPPPPPPP-transition not working
+            transition: linear 0.3s ease;
+            color: $grey;
+            cursor: pointer;
+          }
         }
       }
     }
+  }
+}
+
+// ===>pg2
+.pg2 {
+  .container1 {
+    display: flex;
+    justify-content: flex-end;
+    position: relative;
+    img {
+      width: 70%;
+    }
+  }
+
+  .about-content {
+      display: flex;
+      
+      .intro {
+        min-height: 100px;
+        background-color: #c18f59;
+        border: 8px solid #fff;
+      }
   }
 }
